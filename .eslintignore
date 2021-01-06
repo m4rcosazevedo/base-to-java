@@ -1,0 +1,9 @@
+node_modules
+.idea
+*.sass
+*.scss
+/src/assets
+
+/src/component/avatar-upload/utils.ts
+hex-to-rgba.ts
+samba-player.tsx
