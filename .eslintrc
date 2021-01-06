@@ -1,4 +1,19 @@
 {
   "parser": "babel-eslint",
-  "extends": ["standard", "standard-jsx", "standard-react"]
+  "env": {
+    "browser": true,
+    "es6": true,
+    "jest": true
+  },
+  "extends": ["standard", "standard-jsx", "standard-react"],
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 2018,
+    "sourceType": "module"
+  },
+  "rules": {
+    "jsx-quotes": ["error", "prefer-double"]
+  }
 }
