@@ -1,7 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { useAlertBox } from '../../contexts/alert_box'
 
 const Home = () => {
+  const { alertBox } = useAlertBox()
+
   return (
     <>
       <ul>
@@ -9,6 +12,9 @@ const Home = () => {
         <li><Link to="/login">Login</Link></li>
       </ul>
       Home
+
+      <button onClick={() => alertBox('Lorem ipsum dolor')}>Alert</button>
+
     </>
   )
 }
