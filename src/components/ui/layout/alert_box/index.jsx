@@ -1,11 +1,12 @@
 import React from 'react'
-import { useAlertBox } from '../../../../contexts/alert_box'
+import { useAlertBox } from '../../../../contexts'
 import {
   AlertDialogBody,
   AlertDialogContent, AlertDialogFooter,
   AlertDialogHeader,
   AlertDialogOverlay
 } from './alert_box_styled'
+import { Button } from '../../components'
 
 const AlertBox = () => {
   const { content, open, setContent, setOpen } = useAlertBox()
@@ -26,7 +27,7 @@ const AlertBox = () => {
           <div dangerouslySetInnerHTML={{ __html: content }} />
         </AlertDialogBody>
         <AlertDialogFooter>
-          <button onClick={handleClose}>Ok</button>
+          <Button onClick={handleClose}>Ok</Button>
         </AlertDialogFooter>
       </AlertDialogContent>
     </>

@@ -27,4 +27,8 @@ export const AlertDialogBody = styled.div`
   padding: 10px;
 `
 
-export const AlertDialogFooter = styled.div``
+export const AlertDialogFooter = styled.div`
+  padding: 10px;
+  display: flex;
+  flex-direction: row-reverse;
+`
