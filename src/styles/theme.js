@@ -1,5 +1,5 @@
 export const customTheme = {
-  breakpoints: ['576px', '768px', '992px', '1200px'],
+  breakpoints: ['576px', '768px', '992px', '1200px', '1400px'],
   fonts: {
     body: '"Open Sans", sans-serif',
     heading: 'Biennale, sans-serif',
@@ -12,6 +12,7 @@ export const customTheme = {
     lg: '1.125rem', // 18px
     xl: '1.250rem' // 20px
   },
+  gutters: 10,
   colors: {
     black: '#313131',
     white: '#ffffff',
