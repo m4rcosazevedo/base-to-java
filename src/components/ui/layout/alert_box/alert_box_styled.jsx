@@ -17,7 +17,7 @@ export const AlertDialogContent = styled.div`
   background: #fff;
   top: 50%;
   left: 50%;
-  transform: translate(-50%);
+  transform: translate(-50%, -50%);
   z-index: 71;
 `
 

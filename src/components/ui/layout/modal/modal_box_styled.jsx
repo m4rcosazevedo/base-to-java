@@ -17,7 +17,7 @@ export const ModalDialogContent = styled.div`
   background: #fff;
   top: 50%;
   left: 50%;
-  transform: translate(-50%);
+  transform: translate(-50%, -50%);
   z-index: 61;
   max-width: 90%;
   @media (min-width: ${customTheme.breakpoints[0]}) {
@@ -26,7 +26,7 @@ export const ModalDialogContent = styled.div`
   @media (min-width: ${customTheme.breakpoints[1]}) {
     max-width: 700px;
   }
-  @media (min-width: ${customTheme.breakpoints[3]}) {
+  @media (min-width: ${customTheme.breakpoints[2]}) {
     max-width: 920px;
   }
   @media (min-width: ${customTheme.breakpoints[3]}) {

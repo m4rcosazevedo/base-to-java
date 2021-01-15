@@ -12,7 +12,7 @@ export const customTheme = {
     lg: '1.125rem', // 18px
     xl: '1.250rem' // 20px
   },
-  gutters: 10,
+  gutters: '10px',
   colors: {
     black: '#313131',
     white: '#ffffff',

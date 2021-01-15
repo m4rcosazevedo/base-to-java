@@ -26,7 +26,7 @@ const Modal = () => {
           <ModalDialogClose onClick={handleClose}>&times;</ModalDialogClose>
         </ModalDialogHeader>
         <ModalDialogBody>
-          <div dangerouslySetInnerHTML={{ __html: content }} />
+          {content}
         </ModalDialogBody>
         <ModalDialogFooter />
       </ModalDialogContent>
