@@ -49,7 +49,8 @@ const propsAllowed = [
   'mx', 'my', 'ml', 'mr', 'mt', 'mb', 'm',
   'display', 'flexWrap', 'flexDir', 'flexBasics', 'flexGrow',
   'alignItems', 'alignContent',
-  'justifyItems', 'justifyContent'
+  'justifyItems', 'justifyContent',
+  'textAlign'
 ]
 
 export const applyProps = (props) => {
