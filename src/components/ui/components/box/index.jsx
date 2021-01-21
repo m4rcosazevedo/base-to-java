@@ -1,10 +1,12 @@
 import styled from 'styled-components'
-import { applyProps, propTypesStyledHTML } from '../../../../utils/styled-helpers'
+import PropTypes from 'prop-types'
+import { applyProps, propTypesStyledHTML } from '../../../../utils/styled_helpers'
 
 export const Box = styled.div`
   ${(props) => applyProps(props)}
 `
 
 Box.propTypes = {
-  ...propTypesStyledHTML
+  ...propTypesStyledHTML,
+  pos: PropTypes.oneOf(['relative', 'absolute', 'static'])
 }

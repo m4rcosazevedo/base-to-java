@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import { applyProps, propTypesStyledHTML } from '../../../../utils/styled-helpers'
+import { applyProps, propTypesStyledHTML } from '../../../../utils/styled_helpers'
 
 export const Flex = styled.div`
   display: flex;

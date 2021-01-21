@@ -10,7 +10,7 @@ export const customTheme = {
     sm: '0.875rem', // 14px
     md: '1rem', // 16px
     lg: '1.125rem', // 18px
-    xl: '1.250rem' // 20px
+    xl: '2.375rem' // 38px
   },
   gutters: '10px',
   colors: {

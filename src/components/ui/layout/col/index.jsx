@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Box } from '../../components'
 import { customTheme } from '../../../../styles/theme'
-import { propTypesStyledHTML } from '../../../../utils/styled-helpers'
+import { propTypesStyledHTML } from '../../../../utils/styled_helpers'
 
 const Col = ({ children, ...rest }) => {
   return (

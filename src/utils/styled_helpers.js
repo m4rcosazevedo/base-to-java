@@ -1,5 +1,5 @@
 import { customTheme } from '../styles/theme'
-import { spinalCase } from './case-styles'
+import { spinalCase } from './case_styles'
 import PropTypes from 'prop-types'
 
 const renderResponsive = (index, prop, value) => {
@@ -31,6 +31,7 @@ const removeAbbr = (prop) => {
     case 'mt': return 'margin-top'
     case 'mb': return 'margin-bottom'
     case 'm': return 'margin'
+    case 'pos': return 'position'
     default: return prop
   }
 }
@@ -50,7 +51,7 @@ const propsAllowed = [
   'display', 'flexWrap', 'flexDir', 'flexBasics', 'flexGrow',
   'alignItems', 'alignContent',
   'justifyItems', 'justifyContent',
-  'textAlign'
+  'textAlign', 'pos'
 ]
 
 export const applyProps = (props) => {
