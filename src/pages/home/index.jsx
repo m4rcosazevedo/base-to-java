@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
 import { Box, Container } from '../../components/ui/components'
 import { Row, Col } from '../../components/ui/layout'
 import { makePage } from '../../main/factories'
@@ -25,10 +24,6 @@ const Home = () => {
 
   return (
     <>
-      <ul>
-        <li><Link to="/">Home</Link></li>
-        <li><Link to="/login">Login</Link></li>
-      </ul>
       <Container>
         <Row>
           <Col w={['100%', '50%', '33.3333%']}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab amet asperiores dolores doloribus ipsa neque non nulla officiis sed sequi! Dolore expedita magni vero! Aspernatur doloribus dolorum harum laborum voluptatem!</Col>
