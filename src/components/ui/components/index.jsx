@@ -1,3 +1,4 @@
+export * from './aspect_ratio_box'
 export * from './box'
 export * from './buttons'
 export * from './container'
