@@ -27,9 +27,9 @@ const CreateNewPassword = () => {
           component: 'InputPassword'
         },
         {
-          name: 'password',
+          name: 'confirmPassword',
           placeholder: 'Nova senha*',
-          validations: 'passwordWithMatches',
+          validations: 'confirmPassword',
           component: 'InputPassword'
         },
         {

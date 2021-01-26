@@ -24,7 +24,7 @@ const FormFactory = ({ data, onSubmit, children }) => {
           {children || data.map(({ name, items }, idx) => (
             <div key={idx}>
               {name && <Heading>{name}</Heading>}
-              {items.map((item, index) => (
+              {items.filter(item => item.component).map((item, index) => (
                 <CallInputs key={`${idx}-${index}`} {...item} {...actions} />
               ))}
             </div>
