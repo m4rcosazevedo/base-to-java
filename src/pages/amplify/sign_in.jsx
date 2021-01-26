@@ -1,9 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import { Auth, I18n } from 'aws-amplify'
-import { Box, Button, Flex, Heading } from '../../components/ui/components'
-import { Form, Formik } from 'formik'
-import * as Yup from 'yup'
-import { Input, InputPassword } from '../../components/ui/components/formik'
+import { Auth } from 'aws-amplify'
+import { Box, Flex } from '../../components/ui/components'
 import { Link, useHistory } from 'react-router-dom'
 import * as queryString from 'query-string'
 import { useAlertBox } from '../../contexts'
@@ -13,6 +10,7 @@ import { goToUrl } from '../../utils/go_to_url'
 import Loading from '../../components/loading'
 import { createCookieAdmin } from '../../utils/cookies'
 import { clearStorage } from '../../utils/clear_storage'
+import FormFactory from '../../components/form_factory'
 
 const SignIn = () => {
   const [loading, setLoading] = useState(true)
@@ -20,10 +18,37 @@ const SignIn = () => {
   const search = queryString.parse(history.location.search)
   const isAdmin = 'adm' in search
   const { alertBox } = useAlertBox()
-  const initialValues = {
-    email: '',
-    password: ''
-  }
+
+  const data = [
+    {
+      name: 'Fazer login',
+      items: [
+        {
+          name: 'email',
+          placeholder: 'Digite seu e-mail*',
+          validations: 'emailRequired',
+          component: 'Input',
+          value: '',
+          title: 'E-mail',
+          type: 'text'
+        },
+        {
+          name: 'password',
+          placeholder: 'Digite sua senha*',
+          validations: 'passwordMinRequired',
+          component: 'InputPassword',
+          value: '',
+          title: 'Senha'
+        },
+        {
+          name: 'button',
+          component: 'Button',
+          title: 'Entrar',
+          submittingText: 'Entrando'
+        }
+      ]
+    }
+  ]
 
   useEffect(() => {
     (async () => {
@@ -77,33 +102,7 @@ const SignIn = () => {
 
   return (
     <Box>
-      <Formik
-        enableReinitialize
-        initialValues={initialValues}
-        validationSchema={
-          Yup.object().shape({
-            email: Yup.string()
-              .email(I18n.get('ValidateInvalidEmail'))
-              .required(I18n.get('ValidateRequiredField')),
-            password: Yup.string()
-              .min(8, I18n.get('ValidateMinPassword'))
-              .required(I18n.get('ValidateRequiredField'))
-          })
-        }
-        onSubmit={onSubmit}
-      >
-        {(actions) => (
-          <Form>
-
-            <Heading>Fazer Login</Heading>
-
-            <Input name="email" placeholder="Digite seu e-mail*" {...actions} />
-            <InputPassword name="password" placeholder="Senha" {...actions} />
-
-            <Button type="submit">{actions.setSubmitting ? 'Entrar' : 'Entrando'}</Button>
-          </Form>
-        )}
-      </Formik>
+      <FormFactory data={data} onSubmit={onSubmit} />
 
       <Flex justifyContent="space-around">
         <Link to="/esqueci-minha-senha">Esqueceu a senha?</Link>

@@ -2,16 +2,16 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Button as ButtonUI } from '../../components'
 
-const Button = ({ title, submittingText, setSubmitting }) => {
+const Button = ({ title, submittingText, isSubmitting }) => {
   return (
-    <ButtonUI type="submit">{setSubmitting ? title : submittingText}</ButtonUI>
+    <ButtonUI type="submit">{!isSubmitting ? title : submittingText}</ButtonUI>
   )
 }
 
 Button.propTypes = {
   title: PropTypes.string.isRequired,
   submittingText: PropTypes.string.isRequired,
-  setSubmitting: PropTypes.func.isRequired
+  isSubmitting: PropTypes.bool.isRequired
 }
 
 export default Button
