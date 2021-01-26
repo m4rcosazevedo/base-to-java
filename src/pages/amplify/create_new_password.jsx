@@ -1,14 +1,12 @@
 import React, { useEffect } from 'react'
-import { Auth, I18n } from 'aws-amplify'
+import { Auth } from 'aws-amplify'
 import { useHistory } from 'react-router-dom'
-import { Box, Button, Heading } from '../../components/ui/components'
-import { Form, Formik } from 'formik'
-import * as Yup from 'yup'
-import { InputPassword } from '../../components/ui/components/formik'
+import { Box } from '../../components/ui/components'
 import { useAlertBox } from '../../contexts'
 import { goToUrl } from '../../utils/go_to_url'
 import { exceptionsError } from '../../utils/cognito_erros'
 import { settings } from '../../configs/settings'
+import FormFactory from '../../components/form_factory'
 
 const CreateNewPassword = () => {
   const history = useHistory()
@@ -18,10 +16,31 @@ const CreateNewPassword = () => {
   const email = states ? states.email : ''
   const password = states ? states.password : ''
 
-  const initialValues = {
-    password: '',
-    confirmPassword: ''
-  }
+  const data = [
+    {
+      name: 'Cadastrar nova senha',
+      items: [
+        {
+          name: 'password',
+          placeholder: 'Nova senha*',
+          validations: 'passwordWithMatches',
+          component: 'InputPassword'
+        },
+        {
+          name: 'password',
+          placeholder: 'Nova senha*',
+          validations: 'passwordWithMatches',
+          component: 'InputPassword'
+        },
+        {
+          name: 'button',
+          component: 'Button',
+          title: 'Cadastrar',
+          submittingText: 'Cadastrando'
+        }
+      ]
+    }
+  ]
 
   useEffect(() => {
     if (!email) {
@@ -48,43 +67,11 @@ const CreateNewPassword = () => {
     }
   }
 
+  if (!email) return null
+
   return (
     <Box>
-      <Formik
-        enableReinitialize
-        initialValues={initialValues}
-        validationSchema={
-          Yup.object().shape({
-            password: Yup.string()
-              .required(I18n.get('ValidateRequiredField'))
-              .min(8, I18n.get('ValidateMinPassword'))
-              .max(24, I18n.get('ValidateMaxPassword'))
-              .matches(/[a-z]/, I18n.get('ValidateOneLowerChar'))
-              .matches(/[A-Z]/, I18n.get('ValidateOneUpperChar'))
-              .matches(/[0-9]/, I18n.get('ValidateOneNumber'))
-              .matches(/[!@#$%*()_/\\\-+^&{}:;?.]/, I18n.get('ValidateOneSpecialChar')),
-            confirmPassword: Yup.string().when('password', {
-              is: (val) => val && val.length >= 8,
-              then: Yup.string()
-                .oneOf([Yup.ref('password')], I18n.get('ValidatePasswordNotEquals'))
-                .required(I18n.get('ValidateRequiredField'))
-            })
-          })
-        }
-        onSubmit={onSubmit}
-      >
-        {(actions) => (
-          <Form>
-
-            <Heading>Cadastrar nova senha</Heading>
-
-            <InputPassword name="password" placeholder="Nova senha" {...actions} />
-            <InputPassword name="confirmPassword" placeholder="Confirmar senha" {...actions} />
-
-            <Button type="submit">{actions.setSubmitting ? 'Cadastrar' : 'Cadastrando'}</Button>
-          </Form>
-        )}
-      </Formik>
+      <FormFactory data={data} onSubmit={onSubmit} />
     </Box>
   )
 }
