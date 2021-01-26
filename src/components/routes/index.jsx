@@ -13,6 +13,7 @@ import {
 import { guardsRoutes } from './utils/functions'
 import { AuthLayout, BaseLayout } from '../layouts'
 import Route from './route'
+import Formulario from '../../pages/formulario'
 
 const Routes = () => {
   const routes = [
@@ -27,7 +28,8 @@ const Routes = () => {
         { path: '/recuperar-senha', component: PasswordRecovery },
         { path: '/sair', component: Logout },
         { path: '/403', component: NoAuthorization },
-        { path: '/5:number', component: ServerErrors }
+        { path: '/5:number', component: ServerErrors },
+        { path: '/formulario', component: Formulario }
       ]
     },
     {

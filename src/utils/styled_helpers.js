@@ -32,13 +32,15 @@ const removeAbbr = (prop) => {
     case 'mb': return 'margin-bottom'
     case 'm': return 'margin'
     case 'pos': return 'position'
+    case 'bg': return 'background'
+    case 'bgc': return 'background-color'
     default: return prop
   }
 }
 
 const getProps = (key, value) => {
   if (typeof value === 'object') {
-    return value.map((v, i) => renderResponsive(i, key, v))
+    return value.map((v, i) => renderResponsive(i, key, v)).join('')
   }
 
   return renderResponsive(0, key, value)
@@ -51,7 +53,8 @@ const propsAllowed = [
   'display', 'flexWrap', 'flexDir', 'flexBasics', 'flexGrow',
   'alignItems', 'alignContent',
   'justifyItems', 'justifyContent',
-  'textAlign', 'pos'
+  'textAlign', 'pos',
+  'bg', 'bgc'
 ]
 
 export const applyProps = (props) => {
@@ -83,5 +86,7 @@ export const propTypesStyledHTML = {
   mr: PropTypes.any,
   mt: PropTypes.any,
   mb: PropTypes.any,
-  m: PropTypes.any
+  m: PropTypes.any,
+  bg: PropTypes.any,
+  bgc: PropTypes.any
 }
