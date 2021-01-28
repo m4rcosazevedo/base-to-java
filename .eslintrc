@@ -14,6 +14,7 @@
     "sourceType": "module"
   },
   "rules": {
-    "jsx-quotes": ["error", "prefer-double"]
+    "jsx-quotes": ["error", "prefer-double"],
+    "no-console": ["error", { "allow": ["warn", "error"] }]
   }
 }

@@ -8,7 +8,8 @@ import {
   Home, Logout, NoAuthorization,
   PageNotFound, PasswordRecovery, ServerErrors,
   SignIn,
-  SignUp
+  SignUp,
+  CoursesList, CoursesView
 } from '../../pages'
 import { guardsRoutes } from './utils/functions'
 import { AuthLayout, BaseLayout } from '../layouts'
@@ -36,6 +37,8 @@ const Routes = () => {
       layout: BaseLayout,
       data: [
         { path: '/', component: Home },
+        { path: '/cursos', component: CoursesList },
+        { path: '/cursos/:slug', component: CoursesView },
         { path: '/404', component: PageNotFound },
         { path: '*', component: PageNotFound }
       ]

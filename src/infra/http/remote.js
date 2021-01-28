@@ -39,6 +39,9 @@ api.interceptors.response.use((response) => response, async (error) => {
         case 403:
           window.location.href = '/403'
           break
+        case 404:
+          window.location.href = '/404'
+          break
         default:
           window.location.href = '/sair'
           break

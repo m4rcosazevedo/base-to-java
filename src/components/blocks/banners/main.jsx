@@ -1,7 +1,6 @@
 import React from 'react'
 
-const BannerMain = (props) => {
-  console.log(props)
+const BannerMain = () => {
   return (
     <>
 

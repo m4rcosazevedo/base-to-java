@@ -11,7 +11,9 @@ const BaseLayout = ({ children }) => {
       </ul>
 
       <>Header</>
+      <hr />
       {children}
+      <hr />
       <>Footer</>
     </>
   )
