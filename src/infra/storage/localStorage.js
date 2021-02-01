@@ -1,4 +1,4 @@
-export const addLocalStorage = (key: string, value: any): Promise<void> => {
+export const addLocalStorage = (key, value) => {
   return new Promise((resolve, reject) => {
     try {
       localStorage.setItem(key, value)
@@ -9,10 +9,10 @@ export const addLocalStorage = (key: string, value: any): Promise<void> => {
   })
 }
 
-export const getLocalStorage = (key: string): any => {
+export const getLocalStorage = (key) => {
   return localStorage.getItem(key)
 }
 
-export const removeLocalStorage = (key: string): any => {
+export const removeLocalStorage = (key) => {
   return localStorage.removeItem(key)
 }

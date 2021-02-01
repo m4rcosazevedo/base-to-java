@@ -2,19 +2,24 @@ import { customTheme } from '../styles/theme'
 import { spinalCase } from './case_styles'
 import PropTypes from 'prop-types'
 
+const renderValue = (value) => {
+  return typeof value === 'number' ? `${value}px` : value
+}
+
 const renderResponsive = (index, prop, value) => {
   if (index) {
     return `
       @media (min-width: ${customTheme.breakpoints[index + 1]}) {
-        ${prop}: ${value};
+        ${prop}: ${renderValue(value)};
       }
     `
   }
-  return `${prop}: ${value};`
+  return `${prop}: ${renderValue(value)};`
 }
 
 const removeAbbr = (prop) => {
   switch (prop) {
+    case 'd': return 'display'
     case 'w': return 'width'
     case 'h': return 'height'
     case 'px': return ['padding-left', 'padding-right']
@@ -47,6 +52,7 @@ const getProps = (key, value) => {
 }
 
 const propsAllowed = [
+  'd',
   'w', 'h',
   'px', 'py', 'pl', 'pr', 'pt', 'pb', 'p',
   'mx', 'my', 'ml', 'mr', 'mt', 'mb', 'm',
@@ -54,7 +60,8 @@ const propsAllowed = [
   'alignItems', 'alignContent',
   'justifyItems', 'justifyContent',
   'textAlign', 'pos',
-  'bg', 'bgc'
+  'bg', 'bgc',
+  'opacity'
 ]
 
 export const applyProps = (props) => {
@@ -70,23 +77,32 @@ export const applyProps = (props) => {
   })
 }
 
+const propDefault = PropTypes.oneOfType([
+  PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number
+  ]),
+  PropTypes.arrayOf(PropTypes.string)
+])
+
 export const propTypesStyledHTML = {
-  w: PropTypes.any,
-  h: PropTypes.any,
-  px: PropTypes.any,
-  py: PropTypes.any,
-  pl: PropTypes.any,
-  pr: PropTypes.any,
-  pt: PropTypes.any,
-  pb: PropTypes.any,
-  p: PropTypes.any,
-  mx: PropTypes.any,
-  my: PropTypes.any,
-  ml: PropTypes.any,
-  mr: PropTypes.any,
-  mt: PropTypes.any,
-  mb: PropTypes.any,
-  m: PropTypes.any,
-  bg: PropTypes.any,
-  bgc: PropTypes.any
+  w: propDefault,
+  h: propDefault,
+  px: propDefault,
+  py: propDefault,
+  pl: propDefault,
+  pr: propDefault,
+  pt: propDefault,
+  pb: propDefault,
+  p: propDefault,
+  mx: propDefault,
+  my: propDefault,
+  ml: propDefault,
+  mr: propDefault,
+  mt: propDefault,
+  mb: propDefault,
+  m: propDefault,
+  bg: propDefault,
+  bgc: propDefault,
+  d: propDefault
 }

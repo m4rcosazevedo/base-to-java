@@ -21,7 +21,7 @@ const InputPassword = ({ name, title, placeholder, ...el }) => {
           placeholder={placeholder || ''}
           onChange={val => {
             if (el.setFieldValue) {
-              el.setFieldValue(name, val.currentTarget.value)
+              el.setFieldValue(name, val.target.value)
             }
           }}
           readOnly

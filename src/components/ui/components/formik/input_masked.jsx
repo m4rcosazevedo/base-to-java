@@ -17,7 +17,7 @@ const InputMasked = ({ name, mask, title, placeholder, ...el }) => {
             mask={mask}
             onChange={e => {
               if (el.setFieldValue) {
-                el.setFieldValue(name, e.currentTarget.value)
+                el.setFieldValue(name, e.target.value)
               }
             }}
           >

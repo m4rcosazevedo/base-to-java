@@ -4,6 +4,8 @@ import Routes from '../routes'
 import { AlertBoxProvider } from '../../contexts/alert_box'
 import { ModalBoxProvider } from '../../contexts/modal_box'
 import { AlertBox, Modal } from '../ui/layout'
+
+import '../../assets/fonts/stars/css/styles.css'
 import { GlobalStyle } from '../../styles/global'
 
 import awsExports from '../../aws-exports'

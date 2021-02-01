@@ -8,5 +8,6 @@ export const Box = styled.div`
 
 Box.propTypes = {
   ...propTypesStyledHTML,
-  pos: PropTypes.oneOf(['relative', 'absolute', 'static'])
+  pos: PropTypes.oneOf(['relative', 'absolute', 'static']),
+  opacity: PropTypes.string
 }

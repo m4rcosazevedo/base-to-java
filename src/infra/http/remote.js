@@ -29,7 +29,7 @@ api.interceptors.response.use((response) => response, async (error) => {
   const status = 'response' in error ? error.response.status : null
 
   if (status) {
-    if (status >= 500 && status < 600) {
+    if (status >= 501 && status < 600) {
       window.location.href = `/${status}`
     } else {
       switch (status) {
@@ -42,6 +42,8 @@ api.interceptors.response.use((response) => response, async (error) => {
         case 404:
           window.location.href = '/404'
           break
+        case 500:
+          return Promise.reject(error)
         default:
           window.location.href = '/sair'
           break

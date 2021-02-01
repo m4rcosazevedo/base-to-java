@@ -16,5 +16,11 @@ export const settings = {
     linkClassPrev: 'arrow prev',
     linkClassNext: 'arrow next',
     linkClassLast: 'arrow last'
+  },
+  courses: {
+    view: {
+      ratings: true,
+      totalProgress: true
+    }
   }
 }

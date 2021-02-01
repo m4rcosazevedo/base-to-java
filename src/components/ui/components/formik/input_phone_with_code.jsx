@@ -16,8 +16,8 @@ const InputPhoneWithCode = ({ title, placeholder, ...el }) => {
   const [mask, setMask] = useState(ddiWithMasks[code] || '(99) 99999-9999')
 
   const selectMask = (e) => {
-    setMask(ddiWithMasks[e.currentTarget.value])
-    el.setFieldValue(nameCode, e.currentTarget.value)
+    setMask(ddiWithMasks[e.target.value])
+    el.setFieldValue(nameCode, e.target.value)
     el.setFieldValue(name, '')
   }
 
@@ -41,7 +41,7 @@ const InputPhoneWithCode = ({ title, placeholder, ...el }) => {
                 mask={mask}
                 onChange={e => {
                   if (el.setFieldValue) {
-                    el.setFieldValue(name, e.currentTarget.value)
+                    el.setFieldValue(name, e.target.value)
                   }
                 }}
               >

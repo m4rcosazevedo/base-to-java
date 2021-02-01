@@ -36,9 +36,9 @@ const Routes = () => {
     {
       layout: BaseLayout,
       data: [
-        { path: '/', component: Home },
-        { path: '/cursos', component: CoursesList },
-        { path: '/cursos/:slug', component: CoursesView },
+        { path: '/', component: Home, meta: { auth: true } },
+        { path: '/cursos', component: CoursesList, meta: { auth: true } },
+        { path: '/cursos/:slug', component: CoursesView, meta: { auth: true } },
         { path: '/404', component: PageNotFound },
         { path: '*', component: PageNotFound }
       ]
