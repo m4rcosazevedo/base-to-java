@@ -39,6 +39,7 @@ const removeAbbr = (prop) => {
     case 'pos': return 'position'
     case 'bg': return 'background'
     case 'bgc': return 'background-color'
+    case 'fw': return 'font-weight'
     default: return prop
   }
 }
@@ -61,7 +62,8 @@ const propsAllowed = [
   'justifyItems', 'justifyContent',
   'textAlign', 'pos',
   'bg', 'bgc',
-  'opacity'
+  'opacity',
+  'fw'
 ]
 
 export const applyProps = (props) => {
@@ -104,5 +106,6 @@ export const propTypesStyledHTML = {
   m: propDefault,
   bg: propDefault,
   bgc: propDefault,
-  d: propDefault
+  d: propDefault,
+  fw: propDefault
 }

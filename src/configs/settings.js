@@ -20,7 +20,8 @@ export const settings = {
   courses: {
     view: {
       ratings: true,
-      totalProgress: true
+      totalProgress: true,
+      favorites: true
     }
   }
 }

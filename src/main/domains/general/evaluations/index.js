@@ -12,7 +12,10 @@ export const updateEvaluation = async (params) => {
 updateEvaluation.propTypes = {
   params: Proptypes.shape({
     content_iri: Proptypes.string.isRequired,
-    value: Proptypes.string.isRequired,
+    value: Proptypes.oneOfType([
+      Proptypes.string,
+      Proptypes.number
+    ]).isRequired,
     type: Proptypes.string.isRequired
   })
 }

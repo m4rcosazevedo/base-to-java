@@ -3,9 +3,9 @@ import PropTypes from 'prop-types'
 import { Flex } from '../../components'
 import { customTheme } from '../../../../styles/theme'
 
-const Row = ({ children }) => {
+const Row = ({ children, ...rest }) => {
   return (
-    <Flex flexWrap="wrap" mx={`-${customTheme.gutters}`}>
+    <Flex flexWrap="wrap" {...rest} mx={`-${customTheme.gutters}`}>
       {children}
     </Flex>
   )
